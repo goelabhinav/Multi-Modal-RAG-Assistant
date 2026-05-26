@@ -97,6 +97,16 @@ streamlit run frontend/app.py
 
 ## Architecture
 
+![Multi-Modal RAG Architecture](docs/architecture.jpeg)
+
+The system is organized into five layers:
+
+1. **Multi-Modal Input Layer** -- Accepts text queries, image data (screenshots, PDFs), and audio/video data as input sources.
+2. **Multi-Modal Retrieval Layer** -- Performs parallel retrieval across modalities: text retrieval via Qdrant vector embeddings, image retrieval via CLIP embeddings and visual feature store, and audio/video retrieval via transcript indexing and frame embeddings.
+3. **Modality Integration Layer** -- Merges retrieval results from all modalities into a unified multi-modal context, ensuring the LLM has a complete picture.
+4. **Multi-Modal Reasoning Layer** -- Applies cross-modal understanding and analysis through specialized AI agents (screenshot analyzer, log analyzer, incident correlator, root cause analyzer).
+5. **Enhanced Generation Layer** -- Produces multi-modal aware responses with citations, confidence scores, and grounded recommendations.
+
 ```
 Upload: File -> Validate -> Parse -> Chunk -> Embed -> Qdrant
 Query:  Question -> Embed -> Search -> Rerank -> LLM -> Response
