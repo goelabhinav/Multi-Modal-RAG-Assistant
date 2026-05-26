@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data
+data/uploads/*
+data/db/*.db
+!data/uploads/.gitkeep
+!data/db/.gitkeep
+
+# Qdrant storage
+qdrant_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+# Model cache
+models_cache/
+
+# Pytest
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Instructions md
+/PROJECT_INSTRUCTION.md

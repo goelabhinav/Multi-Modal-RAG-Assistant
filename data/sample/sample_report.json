@@ -1,0 +1,58 @@
+{
+  "test_suite": "e2e_regression",
+  "environment": "staging",
+  "run_date": "2024-01-15T10:00:00Z",
+  "total_tests": 45,
+  "passed": 38,
+  "failed": 5,
+  "skipped": 2,
+  "duration_seconds": 342,
+  "failures": [
+    {
+      "test_name": "test_login_page_renders_correctly",
+      "module": "auth",
+      "error_type": "AssertionError",
+      "error_message": "Expected element '#login-btn' to be visible, but it was hidden",
+      "screenshot": "screenshots/login_failure.png",
+      "severity": "critical"
+    },
+    {
+      "test_name": "test_dashboard_loads_user_data",
+      "module": "dashboard",
+      "error_type": "TimeoutError",
+      "error_message": "API call to /api/v2/users/profile timed out after 30000ms",
+      "screenshot": "screenshots/dashboard_timeout.png",
+      "severity": "high"
+    },
+    {
+      "test_name": "test_search_results_pagination",
+      "module": "search",
+      "error_type": "AssertionError",
+      "error_message": "Expected 10 results per page, got 0",
+      "screenshot": "screenshots/search_empty.png",
+      "severity": "medium"
+    },
+    {
+      "test_name": "test_checkout_flow_completes",
+      "module": "checkout",
+      "error_type": "ElementNotFound",
+      "error_message": "Could not find element '#submit-order' within 10s",
+      "screenshot": "screenshots/checkout_broken.png",
+      "severity": "critical"
+    },
+    {
+      "test_name": "test_accessibility_contrast_ratio",
+      "module": "a11y",
+      "error_type": "AccessibilityViolation",
+      "error_message": "Color contrast ratio 2.1:1 below minimum 4.5:1 for text element .nav-link",
+      "screenshot": null,
+      "severity": "medium"
+    }
+  ],
+  "ci_build": {
+    "pipeline": "main-regression",
+    "build_number": 1247,
+    "commit": "a3f8c2d",
+    "branch": "release/v2.4.0"
+  }
+}

@@ -1,0 +1,25 @@
+2024-01-15 10:23:45 ERROR [auth-service] Connection to database refused
+  at DatabasePool.connect (db/pool.js:142)
+  at AuthService.authenticate (services/auth.js:89)
+  at LoginController.handleLogin (controllers/login.js:23)
+Caused by: ECONNREFUSED 10.0.1.50:5432
+
+2024-01-15 10:23:46 WARN [auth-service] Retrying database connection (attempt 2/3)
+2024-01-15 10:23:47 ERROR [auth-service] Database connection retry failed
+2024-01-15 10:23:48 INFO [auth-service] Switching to read replica at 10.0.1.51:5432
+
+2024-01-15 10:24:01 ERROR [ui-service] React component render failed
+  TypeError: Cannot read properties of undefined (reading 'user')
+  at UserProfile (components/UserProfile.jsx:34)
+  at renderWithHooks (react-dom.development.js:14985)
+  at mountIndeterminateComponent (react-dom.development.js:17811)
+
+2024-01-15 10:24:15 ERROR [api-gateway] 503 Service Unavailable: /api/v2/users/profile
+  Upstream service auth-service returned 500
+  Request ID: req-abc-123-def
+  Duration: 30024ms (timeout)
+
+2024-01-15 10:25:00 INFO [monitoring] Alert triggered: auth-service error rate > 50%
+2024-01-15 10:25:01 INFO [monitoring] PagerDuty incident created: INC-2024-0115-001
+2024-01-15 10:25:30 INFO [auth-service] Database primary recovered, switching back
+2024-01-15 10:25:31 INFO [auth-service] Connection pool re-established (5/10 connections)
